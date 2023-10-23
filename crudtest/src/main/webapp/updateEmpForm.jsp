@@ -38,37 +38,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-	<h1>Emp 수정</h1>
+<div class="container-fluid">
+	<h1 class="text-bg-secondary">Emp 수정</h1>
 	<form action="<%=request.getContextPath()%>/updateEmpAction.jsp">
-		<table border="1">
+		<table class="table table-bordered table-hover">
 			<tr>
-				<td>emp_no</td>
+				<th>emp_no</th>
 				<td>
 					<input type="text" name="empNo" value="<%=emp.empNo %>" readonly="readonly"> 
 				</td>
 			</tr>
 			<tr>
-				<td>emp_name</td>
+				<th>emp_name</th>
 				<td>
 					<input type="text" name="empName" value="<%=emp.empName %>">
 				</td>
 			</tr>
 			<tr>
-				<td>createdate</td>
+				<th>createdate</th>
 				<td><%=emp.createdate %></td>
 			</tr>
 			<tr>
-				<td>updatedate</td>
+				<th>updatedate</th>
 				<td><%=emp.updatedate %></td>
 			</tr>
-			<tr>
-				<td colspan="2">
-					<button type="submit">수정</button>
-				</td>
-			</tr>
 		</table>
+		<div>
+			<button type="submit" class="btn btn-secondary">수정</button>
+		</div>
 	</form>
+</div>
 </body>
 </html>

@@ -10,6 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 <%
@@ -40,33 +46,34 @@
 	stmt.close();
 	conn.close();
 %>
-<h1>Board 삭제</h1>
-	<form action="<%=request.getContextPath() %>/deleteBoardAction.jsp">
-		<table border="1">
-			<tr>
-				<td>board_no</td>
-				<td>
-					<input type="text" name="boardNo" value="<%=board.boardNo %>" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>board_title</td>
-				<td>
-					<input type="text" name="boardTitle" value="<%=board.boardTitle %>" readonly="readonly">
-				</td>
-			</tr>
-			<tr>
-				<td>board_pw</td>
-				<td>
-					<input type="password" name="boardPw">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<button type="submit">삭제</button>
-				</td>
-			</tr>
-		</table>
-	</form>
+<div class="container-fluid">
+	<h1 class="text-bg-secondary">Board 삭제</h1>
+		<form action="<%=request.getContextPath() %>/deleteBoardAction.jsp">
+			<table class="table table-bordered table-hover">
+				<tr>
+					<th>board_no</th>
+					<td>
+						<input type="text" name="boardNo" value="<%=board.boardNo %>" readonly="readonly">
+					</td>
+				</tr>
+				<tr>
+					<th>board_title</th>
+					<td>
+						<input type="text" name="boardTitle" value="<%=board.boardTitle %>" readonly="readonly">
+					</td>
+				</tr>
+				<tr>
+					<th>board_pw</th>
+					<td>
+						<input type="password" name="boardPw">
+					</td>
+				</tr>
+				
+			</table>
+			<div>
+				<button type="submit" class="btn btn-secondary">삭제</button>
+			</div>
+		</form>
+</div>
 </body>
 </html>

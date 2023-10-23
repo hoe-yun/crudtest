@@ -43,52 +43,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-<h1>학생 정보 수정</h1>
+<div class="container-fluid">
+	<h1 class="text-bg-secondary">학생 정보 수정</h1>
 		<form action="<%=request.getContextPath() %>/updateStudentAction.jsp">
-			<table border="1">
+			<table class="table table-bordered table-hover">
 				<tr>
-					<td>student_no</td>
+					<th>student_no</th>
 					<td>
 						<input type="text" name="studentNo" value="<%=(Integer)(map.get("studentNo")) %>" readonly="readonly">
 					</td>
 				</tr>
 				<tr>
-					<td>student_name</td>
+					<th>student_name</th>
 					<td>
 						<input type="text" name="studentName" value="<%=(String)(map.get("studentName")) %>">
 					</td>
 				</tr>
 				<tr>
-					<td>student_birth</td>
+					<th>student_birth</th>
 					<td>
 						<input type="date" name="studentBirth" value="<%=(String)(map.get("studentBirth")) %>">
 					</td>
 				</tr>
 				<tr>
-					<td>createdate</td>
+					<th>createdate</th>
 					<td><%=(String)(map.get("createdate")) %></td>
 				</tr>
 				<tr>
-					<td>updatedate</td>
+					<th>updatedate</th>
 					<td><%=(String)(map.get("updatedate")) %></td>
 				</tr>
 				<tr>
-					<td>team</td>
+					<th>team</th>
 					<td>
 						<select name="teamNo">
 							<option value="<%=(String)(map.get("teamNo")) %>"><%= (String)(map.get("teamName"))%></option>
 						</select>
 					</td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<button type="submit">수정</button>
-					</td>
-				</tr>
-				
 			</table>
+			<div>
+				<button type="submit" class="btn btn-secondary">수정</button>
+			</div>
 		</form>
+</div>
 </body>
 </html>

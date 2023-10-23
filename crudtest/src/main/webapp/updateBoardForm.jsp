@@ -46,57 +46,61 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-	<h1>Board 수정</h1>
+<div class="container-fluid">
+	<h1 class="text-bg-secondary">Board 수정</h1>
 		<form action="<%=request.getContextPath() %>/updateBoardAction.jsp">
-			<table border="1">
+			<table class="table table-bordered table-hover">
 				<tr>
-					<td>board_no</td>
+					<th>board_no</th>
 					<td>
 						<input type="text" name="boardNo" value="<%=board.boardNo %>" readonly="readonly">
 					</td>
 				</tr>
 				<tr>
-					<td>board_title</td>
+					<th>board_title</th>
 					<td>
 						<input type="text" name="boardTitle" value="<%=board.boardTitle %>">
 					</td>
 				</tr>
 				<tr>
-					<td>board_content</td>
+					<th>board_content</th>
 					<td>
-						<textarea rows="8" cols=30><%=board.boardContent%></textarea>
+						<textarea rows="8" cols=30 name="boardContent"><%=board.boardContent%></textarea>
 					</td>
 				</tr>
 				<tr>
-					<td>board_writer</td>
+					<th>board_writer</th>
 					<td>
 						<input type="text" name="boardWriter" value="<%=board.boardWriter %>">
 					</td>
 				</tr>
 				<tr>
-					<td>board_pw</td>
+					<th>board_pw</th>
 					<td>
 						<input type="password" name="boardPw">	<!-- pw를 입력해야지만 다음 실행 가능하도록 값을 넣지 않음 -->
 					</td>
 				</tr>
 				<tr>
-					<td>createdate</td>
+					<th>createdate</th>
 					<td><%=board.createdate %></td>
 				</tr>
 				<tr>
-					<td>updatedate</td>
+					<th>updatedate</th>
 					<td><%=board.updatedate %></td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<button type="submit">수정</button>
-					</td>
-				</tr>
-				
 			</table>
+			<div>
+				<button type="submit" class="btn btn-secondary">수정</button>
+			</div>
 		</form>
-
+</div>
 </body>
 </html>

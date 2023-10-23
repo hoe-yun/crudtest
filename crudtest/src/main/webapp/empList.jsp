@@ -10,6 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 <%
@@ -44,50 +50,68 @@
 	// 뷰 레이어
 	
 %>
-
-	<ul>
-		<li><a href="<%=request.getContextPath()%>/home.jsp">홈으로</a></li>
-		<li><a href="<%=request.getContextPath()%>/empList.jsp">직원관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/teamList.jsp">팀관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/studentList.jsp">학생관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/boardList.jsp">게시판관리</a></li>
-	</ul>
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="<%=request.getContextPath()%>/home.jsp">Home</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	      <ul class="navbar-nav">
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/empList.jsp">Emp</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/teamList.jsp">Team</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/studentList.jsp">Student</a>
+	        </li>   
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/boardList.jsp">Board</a>
+	        </li> 
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
 	
-	<h1>직원 리스트</h1>
-	<div>
-		<a href="<%=request.getContextPath()%>/addEmpForm.jsp">직원추가</a>
-	</div>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>emp_no</th>
-				<th>emp_name</th>
-				<th>createdate</th>
-				<th>updatedate</th>
-				<th>수정</th>
-				<th>삭제</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
-				for(Emp e : list) {
-			%>
-					<tr>
-						<td><%=e.empNo%></td>
-						<td><%=e.empName%></td>
-						<td><%=e.createdate%></td>
-						<td><%=e.updatedate%></td>
-						<td>
-							<a href="<%=request.getContextPath()%>/updateEmpForm.jsp?empNo=<%=e.empNo%>">수정</a>
-						</td>
-						<td>
-							<a href="<%=request.getContextPath()%>/deleteEmpAction.jsp?empNo=<%=e.empNo%>">삭제</a>
-						</td>
-					</tr>
-			<%		
-				}
-			%>
-		</tbody>
-	</table>
+	<h1 class="text-bg-secondary">직원 리스트</h1>
+		<div>
+			<a href="<%=request.getContextPath()%>/addEmpForm.jsp" class="btn btn-secondary">직원추가</a>
+		</div>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr class="table-dark">
+					<th>emp_no</th>
+					<th>emp_name</th>
+					<th>createdate</th>
+					<th>updatedate</th>
+					<th>수정</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					for(Emp e : list) {
+				%>
+						<tr>
+							<td><%=e.empNo%></td>
+							<td><%=e.empName%></td>
+							<td><%=e.createdate%></td>
+							<td><%=e.updatedate%></td>
+							<td>
+								<a href="<%=request.getContextPath()%>/updateEmpForm.jsp?empNo=<%=e.empNo%>" class="btn btn-secondary">수정</a>
+							</td>
+							<td>
+								<a href="<%=request.getContextPath()%>/deleteEmpAction.jsp?empNo=<%=e.empNo%>" class="btn btn-secondary">삭제</a>
+							</td>
+						</tr>
+				<%		
+					}
+				%>
+			</tbody>
+		</table>
+</div>
 </body>
 </html>

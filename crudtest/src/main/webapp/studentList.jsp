@@ -36,49 +36,74 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-	<ul>
-		<li><a href="<%=request.getContextPath()%>/home.jsp">홈으로</a></li>
-		<li><a href="<%=request.getContextPath()%>/empList.jsp">직원관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/teamList.jsp">팀관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/studentList.jsp">학생관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/boardList.jsp">게시판관리</a></li>
-	</ul>
-	
-	<h1>학생 리스트</h1>
-	<a href="<%=request.getContextPath() %>/addStudentForm.jsp">학생 추가</a>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>studentNo</th>
-				<th>studentName</th>
-				<th>studentBirth</th>
-				<th>createdate</th>
-				<th>updatedate</th>
-				<th>teamNo</th>
-				<th>상세정보</th>
-			</tr>
-		</thead>
-		<tbody>
-		<%
-			for(Student s : list){
-		%>
-				<tr>
-					<td><%=s.studentNo %></td>
-					<td><%=s.studentName %></td>
-					<td><%=s.studentBirth %></td>
-					<td><%=s.createdate %></td>
-					<td><%=s.updatedate %></td>
-					<td><%=s.teamNo %></td>
-					<td>
-						<a href="<%=request.getContextPath()%>/studentOne.jsp?studentNo=<%=s.studentNo%>">상세정보</a>
-					</td>
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="<%=request.getContextPath()%>/home.jsp">Home</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	      <ul class="navbar-nav">
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/empList.jsp">Emp</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/teamList.jsp">Team</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/studentList.jsp">Student</a>
+	        </li>   
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/boardList.jsp">Board</a>
+	        </li> 
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+		
+	<h1 class="text-bg-secondary">학생 리스트</h1>
+		<a href="<%=request.getContextPath() %>/addStudentForm.jsp" class="btn btn-secondary">학생 추가</a>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr class="table-dark">
+					<th>studentNo</th>
+					<th>studentName</th>
+					<th>studentBirth</th>
+					<th>createdate</th>
+					<th>updatedate</th>
+					<th>teamNo</th>
+					<th>상세정보</th>
 				</tr>
-		<%
-			}
-		%>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+			<%
+				for(Student s : list){
+			%>
+					<tr>
+						<td><%=s.studentNo %></td>
+						<td><%=s.studentName %></td>
+						<td><%=s.studentBirth %></td>
+						<td><%=s.createdate %></td>
+						<td><%=s.updatedate %></td>
+						<td><%=s.teamNo %></td>
+						<td>
+							<a href="<%=request.getContextPath()%>/studentOne.jsp?studentNo=<%=s.studentNo%>" class="btn btn-secondary">상세정보</a>
+						</td>
+					</tr>
+			<%
+				}
+			%>
+			</tbody>
+		</table>
+</div>	
 </body>
 </html>

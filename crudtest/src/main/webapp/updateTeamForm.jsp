@@ -43,56 +43,62 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-	<h1>Team 수정</h1>
+<div class="container-fluid">
+	<h1 class="text-bg-secondary">Team 수정</h1>
 		<form action="<%=request.getContextPath() %>/updateTeamAction.jsp">
-			<table border="1">
+			<table class="table table-bordered table-hover">
 				<tr>
-					<td>team_no</td>
+					<th>team_no</th>
 					<td>
 						<input type="text" name="teamNo" value="<%=team.teamNo %>" readonly="readonly">
 					</td>
 				</tr>
 				<tr>
-					<td>team_name</td>
+					<th>team_name</th>
 					<td>
 						<input type="text" name="teamName" value="<%=team.teamName %>">
 					</td>
 				</tr>
 				<tr>
-					<td>team_count</td>
+					<th>team_count</th>
 					<td>
 						<input type="text" name="teamCount" value="<%=team.teamCount %>">
 					</td>
 				</tr>
 				<tr>
-					<td>team_begin</td>
+					<th>team_begin</th>
 					<td>
 						<input type="date" name="teamBegin" value="<%=team.teamBegin %>">
 					</td>
 				</tr>
 				<tr>
-					<td>team_end</td>
+					<th>team_end</th>
 					<td>
 						<input type="date" name="teamEnd" value="<%=team.teamEnd %>">
 					</td>
 				</tr>
 				<tr>
-					<td>createdate</td>
+					<th>createdate</th>
 					<td><%=team.createdate %></td>
 				</tr>
 				<tr>
-					<td>updatedate</td>
+					<th>updatedate</th>
 					<td><%=team.updatedate %></td>
 				</tr>
 				<tr>
-					<td colspan="2">
-						<button type="submit">수정</button>
-					</td>
-				</tr>
-				
 			</table>
+			<div>
+				<button type="submit" class="btn btn-secondary">수정</button>
+			</div>
 		</form>
+</div>
 </body>
 </html>

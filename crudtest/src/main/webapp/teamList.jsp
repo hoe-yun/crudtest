@@ -11,6 +11,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 <%
@@ -40,55 +46,74 @@
 		list.add(t);
 	}
 %>
-	<ul>		<!-- 상단 홈 메뉴 건들필요 없음 -->
-		<li><a href="<%=request.getContextPath()%>/home.jsp">홈으로</a></li>
-		<li><a href="<%=request.getContextPath()%>/empList.jsp">직원관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/teamList.jsp">팀관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/studentList.jsp">학생관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/boardList.jsp">게시판관리</a></li>
-	</ul>
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="<%=request.getContextPath()%>/home.jsp">Home</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	      <ul class="navbar-nav">
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/empList.jsp">Emp</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/teamList.jsp">Team</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/studentList.jsp">Student</a>
+	        </li>   
+	        <li class="nav-item">
+	          <a class="nav-link" href="<%=request.getContextPath()%>/boardList.jsp">Board</a>
+	        </li> 
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
 	
-	<h1>팀 리스트</h1>
-	<div>
-		<a href="<%=request.getContextPath() %>/addTeamForm.jsp">팀 추가</a>	<!-- 팀 추가 링크를 통해 addTeamForm.jsp로 요청을 보냄 -->
-	</div>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>team_no</th>
-				<th>team_name</th>
-				<th>team_count</th>
-				<th>team_begin</th>
-				<th>team_end</th>
-				<th>createdate</th>
-				<th>updatedate</th>
-				<th>수정</th>
-				<th>삭제</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
-				for(Team t : list){
-			%>
-					<tr>
-						<td><%=t.teamNo%></td>
-						<td><%=t.teamName%></td>
-						<td><%=t.teamCount %></td>
-						<td><%=t.teamBegin %></td>
-						<td><%=t.teamEnd%></td>
-						<td><%=t.createdate%></td>
-						<td><%=t.updatedate%></td>
-						<td>
-							<a href="<%=request.getContextPath()%>/updateTeamForm.jsp?teamNo=<%=t.teamNo%>">수정</a>
-						</td>
-						<td>
-							<a href="<%=request.getContextPath()%>/deleteTeamAction.jsp?teamNo=<%=t.teamNo%>">삭제</a>
-						</td>
-					</tr>
-			<%
-				}
-			%>
-		</tbody>
-	</table>
+	<h1 class="text-bg-secondary">팀 리스트</h1>
+		<div>
+			<a href="<%=request.getContextPath() %>/addTeamForm.jsp" class="btn btn-secondary">팀 추가</a>	<!-- 팀 추가 링크를 통해 addTeamForm.jsp로 요청을 보냄 -->
+		</div>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr class="table-dark">
+					<th>team_no</th>
+					<th>team_name</th>
+					<th>team_count</th>
+					<th>team_begin</th>
+					<th>team_end</th>
+					<th>createdate</th>
+					<th>updatedate</th>
+					<th>수정</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					for(Team t : list){
+				%>
+						<tr>
+							<td><%=t.teamNo%></td>
+							<td><%=t.teamName%></td>
+							<td><%=t.teamCount %></td>
+							<td><%=t.teamBegin %></td>
+							<td><%=t.teamEnd%></td>
+							<td><%=t.createdate%></td>
+							<td><%=t.updatedate%></td>
+							<td>
+								<a href="<%=request.getContextPath()%>/updateTeamForm.jsp?teamNo=<%=t.teamNo%>" class="btn btn-secondary">수정</a>
+							</td>
+							<td>
+								<a href="<%=request.getContextPath()%>/deleteTeamAction.jsp?teamNo=<%=t.teamNo%>" class="btn btn-secondary">삭제</a>
+							</td>
+						</tr>
+				<%
+					}
+				%>
+			</tbody>
+		</table>
+</div>
 </body>
 </html>

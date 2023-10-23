@@ -8,6 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 <% 
@@ -41,8 +47,9 @@
 	stmt.close();
 	conn.close();
 %>
-	<h1>Board 상세정보</h1>
-	<table border="1">
+<div class="container-fluid">
+	<h1 class="text-bg-secondary">Board 상세정보</h1>
+	<table class="table table-bordered table-hover">
 			<%
 				for(Board b : list) {
 			%>
@@ -74,16 +81,17 @@
 						<th>updatedate</th>
 						<td><%=b.updatedate%></td>
 					</tr>
-					<tr>
-						<td colspan="2">
-							<a href="<%=request.getContextPath()%>/updateBoardForm.jsp?boardNo=<%=b.boardNo%>">수정</a>
-							<a href="<%=request.getContextPath()%>/deleteBoardForm.jsp?boardNo=<%=b.boardNo%>">삭제</a>
-						</td>
-					</tr>
+					
 			<%		
 				}
 			%>
 		</tbody>
-	</table>
+	</table>	
+	<div>	
+		<a href="<%=request.getContextPath()%>/updateBoardForm.jsp?boardNo=<%=boardNo%>" class="btn btn-secondary">수정</a>
+		<a href="<%=request.getContextPath()%>/deleteBoardForm.jsp?boardNo=<%=boardNo%>" class="btn btn-secondary">삭제</a>		
+		<a href="<%=request.getContextPath()%>/boardList.jsp" class="btn btn-secondary">뒤로</a>
+	</div>
+</div>
 </body>
 </html>
